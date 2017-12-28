@@ -1,0 +1,6 @@
+auth		required	/lib/x86_64-linux-gnu/security/pam_userdb.so	db=/etc/vsftpd/users
+account		required	/lib/x86_64-linux-gnu/security/pam_userdb.so	db=/etc/vsftpd/users
+
+#
+#  x86_64-linux-gnu
+# /lib/security/pam_userdb.so

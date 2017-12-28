@@ -1,0 +1,48 @@
+# наш сервер не будет анонимным
+anonymous_enable=NO
+
+local_enable=YES
+write_enable=YES
+
+#папка по умолчанию
+local_root=/var/ftp/incoming
+anon_upload_enable=YES
+anon_mkdir_write_enable=NO
+anon_other_write_enable=NO
+chroot_local_user=YES
+allow_writeable_chroot=YES
+
+#т.к. будем использовать виртуальных пользователей то нужно привести их к пользователю
+#сервера с минимальными правами
+guest_enable=YES
+guest_username=ftpuser
+
+#укажем папку для хранения дополнительных конфигов
+user_config_dir=/etc/vsftpd/users/
+virtual_use_local_privs=YES
+
+# выставим нужные права
+chmod_enable=YES
+chown_uploads=YES
+chown_username=ftpuser
+
+# маски створення та читання файлів, тобто який chmod буде в створених юзером файлів.
+# Щоб отримати chmod 770 тре задати маску 007, типу 777 - 770 = 007
+# нуль попереду потрібний
+local_umask=0007
+anon_umask=0007
+file_open_mode=0777
+
+listen=YES
+listen_port=21
+pasv_min_port=10100
+pasv_max_port=10150
+pasv_address=52.10.164.37
+
+xferlog_std_format=YES
+xferlog_file=/var/log/vsftpd.log
+tcp_wrappers=YES
+dirmessage_enable=YES
+ftpd_banner=Welcome
+
+pam_service_name=ftp
