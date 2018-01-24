@@ -4,8 +4,8 @@ anonymous_enable=NO
 local_enable=YES
 write_enable=YES
 
-#папка по умолчанию
-local_root=/var/ftp/incoming
+#default dir - dont forget to make it accessible
+local_root=/var/ftp
 anon_upload_enable=YES
 anon_mkdir_write_enable=NO
 anon_other_write_enable=NO
@@ -18,7 +18,7 @@ guest_enable=YES
 guest_username=ftpuser
 
 #укажем папку для хранения дополнительных конфигов
-user_config_dir=/etc/vsftpd/users/
+user_config_dir=/kts/conf/vsftpd/users/
 virtual_use_local_privs=YES
 
 # выставим нужные права
@@ -37,10 +37,12 @@ listen=YES
 listen_port=21
 pasv_min_port=10100
 pasv_max_port=10150
-pasv_address=52.10.164.37
+#pasv_address=10.1.4.191
 
-xferlog_std_format=YES
+xferlog_enable=YES
+xferlog_std_format=NO
 xferlog_file=/var/log/vsftpd.log
+log_ftp_protocol=YES
 tcp_wrappers=YES
 dirmessage_enable=YES
 ftpd_banner=Welcome
