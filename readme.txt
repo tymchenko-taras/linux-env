@@ -38,3 +38,7 @@ Test that it’s working:
 docker -H tcp://127.0.0.1:2375 ps
 
 ---------------------------------------------------------------
+Connect to the host machine from a VirtualBox guest OS?
+this commang will give the IP in gateway column:
+netstat -rn
+---------------------------------------------------------------
